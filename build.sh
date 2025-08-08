@@ -98,6 +98,7 @@ run_ros_build() {
         if [[ "$ROS_DISTRO" == "noetic" ]]; then
             print_header "[Using catkin build]"
             print_info "Building all packages..."
+            catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3
             catkin build
         else
             print_header "[Using colcon build]"
@@ -108,6 +109,7 @@ run_ros_build() {
         if [[ "$ROS_DISTRO" == "noetic" ]]; then
             print_header "[Using catkin build]"
             print_info "Building specific packages: $package_list"
+            catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3
             catkin build $package_list
         else
             print_header "[Using colcon build]"
